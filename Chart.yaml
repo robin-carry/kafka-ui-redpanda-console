@@ -1,0 +1,10 @@
+apiVersion: v2
+name: kafka-ui-redpanda-console
+description: A Helm chart for Kubernetes
+type: application
+version: 0.1.0
+appVersion: "1.16.0"
+dependencies:
+  - name: console
+    version: 0.3.1
+    repository: https://packages.vectorized.io/public/console/helm/charts/
