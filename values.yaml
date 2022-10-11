@@ -18,12 +18,17 @@ serviceAccount:
   # Specifies whether a service account should be created
   create: true
   # Annotations to add to the service account
-  annotations: {}
+  annotations:
   # The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
   name: ""
 
-podAnnotations: {}
+podAnnotations:
+  # This is what defines this resource as a hook. Without this line, the
+  # job is considered part of the release.
+  "helm.sh/hook": post-install
+  "helm.sh/hook-weight": "-5"
+  "helm.sh/hook-delete-policy": hook-succeeded
 
 podSecurityContext: {}
   # fsGroup: 2000
